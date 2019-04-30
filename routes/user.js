@@ -12,7 +12,7 @@ router.get('/login', (req, res) => res.render('login'));
 // Register Page
 router.get('/register', (req, res) => res.render('register'));
 
-// Forgot-password
+// Forgot-password page
 router.get('/forgot-password', (req, res) => res.render('forgot-password'));
 
 // Register
@@ -70,8 +70,8 @@ router.get('/google',
     passport.authenticate('google', {scope: ['profile', 'email']}));
 
 //Redirect to callback google
-router.get('/google/redirect', passport.authenticate('google'), (req, res) =>{
-    //res.send(req.user);
+router.get('/google/redirect', passport.authenticate('google', {failureRedirect: '/user/login'}), 
+    function (req, res){
     res.redirect('/principal');
 });
 

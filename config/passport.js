@@ -1,10 +1,10 @@
 const LocalStrategy = require('passport-local').Strategy;
-const mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const GoogleStrategy = require('passport-google-oauth20');
 const keys = require('./keys');
 const User = require('../models/user');
+var JSAlert = require("js-alert");
 
 passport.serializeUser ((user, done) => {
     done(null, user.id);
@@ -40,8 +40,9 @@ passport.use(new GoogleStrategy({
                         done(null, newUser);
                     });
                 }else{
-                    console.log('correo no valido');
-                    done (null, null, {message: 'Correo invalido'});
+                    
+                    done (null, null, JSAlert.alert("This is an alert."));
+                    
                 }
                 
             }
