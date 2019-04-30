@@ -41,7 +41,7 @@ passport.use(new GoogleStrategy({
                     });
                 }else{
                     
-                    done (null, null, JSAlert.alert("This is an alert."));
+                    done (null, null, JSAlert.alert("This is an lert."));
                     
                 }
                 
